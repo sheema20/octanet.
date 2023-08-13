@@ -1,0 +1,29 @@
+function addTask() {
+    const inputBox = document.getElementById("input-box");
+    const deadlineBox = document.getElementById("deadline-box");
+    const priorityBox = document.getElementById("priority-box");
+    const listContainer = document.getElementById("list-container");
+
+    if (inputBox.value === "") {
+        alert("You must write something!");
+    } else {
+        const li = document.createElement("li");
+        const deadlineSpan = document.createElement("span");
+        const prioritySpan = document.createElement("span");
+
+        li.textContent = inputBox.value;
+        deadlineSpan.textContent = deadlineBox.value;
+        prioritySpan.textContent = priorityBox.value;
+
+        deadlineSpan.classList.add("deadline");
+        prioritySpan.classList.add("priority");
+
+        li.appendChild(deadlineSpan);
+        li.appendChild(prioritySpan);
+        listContainer.appendChild(li);
+
+        inputBox.value = "";
+        deadlineBox.value = "";
+        priorityBox.value = "low";
+    }
+}
